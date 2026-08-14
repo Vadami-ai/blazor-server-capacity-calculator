@@ -10,9 +10,9 @@ const FIELDS = [
   { id: 'tabs', label: 'Avg tabs per user', unit: '', step: 0.1, min: 1, max: 5, decimals: 1, group: 'Users', help: 'Browser tabs / windows each user typically keeps open with an active circuit.' },
   { id: 'discRatio', label: 'Disconnected ratio', unit: '%', step: 1, min: 0, max: 100, group: 'Users', help: 'Circuits retained in memory for the reconnect window during network churn or node drain.' },
   // group: Memory
-  { id: 'perCircuitMB', label: 'Memory per circuit', unit: 'MB', step: 0.05, min: 0.05, max: 10, decimals: 2, group: 'Memory', help: 'Measured memory footprint per circuit. Workload-specific — pull from soak tests, not defaults.' },
+  { id: 'perCircuitMB', label: 'Memory per circuit', unit: 'MB', step: 0.05, min: 0.05, max: 10, decimals: 2, group: 'Memory', help: 'Measured memory footprint per circuit. Workload-specific; pull from soak tests, not defaults.' },
   { id: 'overheadPct', label: 'App / runtime overhead', unit: '%', step: 1, min: 0, max: 200, group: 'Memory', help: 'Framework, app services, caches, allocations. Applied as a percentage uplift on circuit memory.' },
-  { id: 'nodeUsableGB', label: 'Usable memory / node', unit: 'GB', step: 1, min: 1, max: 512, group: 'Memory', help: 'Memory budget per app node for the Blazor process — not total VM RAM. Reserve OS/agent headroom first.' },
+  { id: 'nodeUsableGB', label: 'Usable memory / node', unit: 'GB', step: 1, min: 1, max: 512, group: 'Memory', help: 'Memory budget per app node for the Blazor process, not total VM RAM. Reserve OS/agent headroom first.' },
   { id: 'sparePct', label: 'Spare capacity target', unit: '%', step: 1, min: 0, max: 90, group: 'Memory', help: 'Unused capacity held at peak for failover, deploys, and incident headroom. 20–40% is typical.' },
   // group: SignalR
   { id: 'connPerUnit', label: 'Connections / SignalR unit', unit: '', step: 100, min: 100, max: 100000, group: 'SignalR', help: 'Concurrent client connections supported per SignalR unit for your tier.' },
@@ -146,7 +146,7 @@ function ScenarioTable({ inputs, patternKey, highlight }) {
   );
 }
 
-// Scaling curve chart — nodes / units / memory, with toggle + fixed readout below
+// Scaling curve chart: nodes / units / memory, with toggle + fixed readout below
 function ScalingChart({ inputs, patternKey, highlightUsers }) {
   const [vis, setVis] = useState({ nodes: true, units: true, memory: true });
   const [hover, setHover] = useState(null); // {u}
@@ -271,7 +271,7 @@ function ScalingChart({ inputs, patternKey, highlightUsers }) {
         </svg>
       </div>
 
-      {/* Fixed readout window below the chart — visible only when Inspect is on */}
+      {/* Fixed readout window below the chart, visible only when Inspect is on */}
       {readoutOn ? (
         <div className="chart-readout">
           <div className="readout-head">

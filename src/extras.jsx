@@ -18,12 +18,12 @@ function ReadmePanel() {
           coverage from a handful of workload assumptions.
         </p>
         <ul className="readme-list">
-          <li><strong>Pattern</strong> — pick the architecture pattern that matches your deployment. Each pattern applies factors to circuit memory, overhead, and SignalR headroom.</li>
-          <li><strong>Slider</strong> — drag to set peak concurrent users. Everything recalculates live. Use the tick buttons for quick presets (1k / 5k / 8k / 10k / 15k / 25k).</li>
-          <li><strong>Assumptions</strong> — edit the numbers on the left to reflect your app. Values come from soak tests, telemetry, and SKU documentation — not from defaults.</li>
-          <li><strong>Scaling curve</strong> — see how nodes, SignalR units, and memory scale with user count. Hover to inspect any point.</li>
-          <li><strong>Scenarios</strong> — the comparison table renders six preset user counts at once, with the current slider value highlighted.</li>
-          <li><strong>Plans</strong> — save named snapshots locally, export to JSON for sharing, or import a JSON file from a teammate.</li>
+          <li><strong>Pattern:</strong> pick the architecture pattern that matches your deployment. Each pattern applies factors to circuit memory, overhead, and SignalR headroom.</li>
+          <li><strong>Slider:</strong> drag to set peak concurrent users. Everything recalculates live. Use the tick buttons for quick presets (1k / 5k / 8k / 10k / 15k / 25k).</li>
+          <li><strong>Assumptions:</strong> edit the numbers on the left to reflect your app. Values come from soak tests, telemetry, and SKU documentation, not from defaults.</li>
+          <li><strong>Scaling curve:</strong> see how nodes, SignalR units, and memory scale with user count. Hover to inspect any point.</li>
+          <li><strong>Scenarios:</strong> the comparison table renders six preset user counts at once, with the current slider value highlighted.</li>
+          <li><strong>Plans:</strong> save named snapshots locally, export to JSON for sharing, or import a JSON file from a teammate.</li>
         </ul>
         <div className="readme-note">
           Results are planning estimates. Always validate with soak tests and failure
@@ -53,7 +53,7 @@ const GLOSSARY = [
   },
   {
     term: 'Total circuits',
-    def: 'All circuits consuming memory at peak — active plus those in the reconnect buffer.',
+    def: 'All circuits consuming memory at peak: active plus those in the reconnect buffer.',
     formula: 'total = active + disconnected',
   },
   {
@@ -73,7 +73,7 @@ const GLOSSARY = [
   },
   {
     term: 'SignalR unit',
-    def: 'A unit of Azure SignalR Service capacity — limits concurrent connections and includes a daily message allotment.',
+    def: 'A unit of Azure SignalR Service capacity; it limits concurrent connections and includes a daily message allotment.',
     formula: null,
   },
   {
@@ -122,7 +122,7 @@ const REFERENCES = [
   {
     label: '.NET memory & GC behaviour (Server GC)',
     href: 'https://learn.microsoft.com/dotnet/standard/garbage-collection/fundamentals',
-    note: 'How the runtime manages memory — useful context for the overhead percentage.',
+    note: 'How the runtime manages memory; useful context for the overhead percentage.',
   },
 ];
 

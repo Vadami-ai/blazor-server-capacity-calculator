@@ -1,6 +1,6 @@
 # Blazor Server Capacity Calculator
 
-**Size app nodes, Azure SignalR units, memory, and message budget for real-time Blazor Server workloads — from your measured assumptions, not guesses.**
+**Size app nodes, Azure SignalR units, memory, and message budget for real-time Blazor Server workloads, from your measured assumptions, not guesses.**
 
 🔗 **Live tool:** https://blazorperformance.com/tools/capacity-calculator/
 
@@ -10,7 +10,7 @@ Blazor Server capacity planning is genuinely hard: every connected user tab hold
 stateful circuit in server memory, disconnected users linger through a reconnect
 window, and Azure SignalR Service is priced in units that cap both concurrent
 connections *and* daily messages. This calculator turns those constraints into an
-interactive model so you can see — before procurement — how many app nodes and
+interactive model so you can see, before procurement, how many app nodes and
 SignalR units a given peak-concurrency target actually needs.
 
 Built from production experience running Blazor Server for enterprise applications
@@ -18,18 +18,18 @@ at 10k+ concurrent-user scale.
 
 ## Features
 
-- **Live sizing** — drag the user slider; nodes, units, memory, and message budget recalculate instantly
-- **Three architecture patterns** — Azure-managed SignalR, self-managed backplane, and workload-split profiles with transparent adjustment factors
-- **Scaling curve** — nodes / units / memory plotted across 500–30,000 users, with point inspection
-- **Scenario comparison** — six preset concurrency levels side by side
-- **Saved plans** — named local snapshots with JSON export/import for sharing with your team
-- **Copy summary / Print** — paste-ready plan summary for docs and reviews
-- **Glossary** — every term and formula documented in the tool itself
+- **Live sizing**: drag the user slider; nodes, units, memory, and message budget recalculate instantly
+- **Three architecture patterns**: Azure-managed SignalR, self-managed backplane, and workload-split profiles with transparent adjustment factors
+- **Scaling curve**: nodes / units / memory plotted across 500–30,000 users, with point inspection
+- **Scenario comparison**: six preset concurrency levels side by side
+- **Saved plans**: named local snapshots with JSON export/import for sharing with your team
+- **Copy summary / Print**: paste-ready plan summary for docs and reviews
+- **Glossary**: every term and formula documented in the tool itself
 
 ## Getting started
 
 **No install:** grab `blazor-server-capacity-calculator-standalone.html` from
-[Releases](../../releases) — a single self-contained file that runs offline from
+[Releases](../../releases): a single self-contained file that runs offline from
 anywhere, or use the live tool link above.
 
 **From source:**
@@ -45,7 +45,7 @@ dependencies, ~200 KB total shipped.
 
 ## The model
 
-All math lives in [`src/calc-core.js`](src/calc-core.js) — pure functions, inspectable, testable.
+All math lives in [`src/calc-core.js`](src/calc-core.js): pure functions, inspectable, testable.
 
 ```
 activeCircuits        = users × tabsPerUser
@@ -66,7 +66,7 @@ coverage              = includedMessages − dailyMessages   (negative ⇒ add u
 
 Architecture patterns apply multipliers on top (e.g. self-managed adds circuit-memory
 and overhead pressure; workload-split reduces interactive circuit cost). The factors
-are shown in the UI — nothing is hidden.
+are shown in the UI; nothing is hidden.
 
 **Where the input numbers should come from:** per-circuit memory from soak tests
 (`dotnet-counters` / `dotnet-gcdump` against realistic sessions), concurrency from
@@ -78,7 +78,7 @@ tier's current SKU documentation. The defaults are illustrative only.
 
 ## Contributing
 
-Issues and PRs welcome — especially measured data points that improve the default
+Issues and PRs welcome, especially measured data points that improve the default
 assumptions, and corrections when Azure SignalR SKU terms change. Keep the model in
 `calc-core.js` pure and UI-free.
 
@@ -88,5 +88,5 @@ assumptions, and corrections when Azure SignalR SKU terms change. Keep the model
 
 ---
 
-Part of [blazorperformance.com](https://blazorperformance.com) — tools and playbooks
+Part of [blazorperformance.com](https://blazorperformance.com): tools and playbooks
 for Blazor scalability and performance engineering.

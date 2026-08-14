@@ -170,7 +170,7 @@ function InputsCard({ inputs, setField }) {
 
 // ---------- Pattern factors editor ----------
 function FactorEditor({ pattern }) {
-  // Read-only snapshot — the PRD mentions editable factors; we expose them read-only
+  // Read-only snapshot: the PRD mentions editable factors; we expose them read-only
   // here to keep the top-level UI tight, but show what's active.
   return (
     <div className="card">
@@ -340,7 +340,7 @@ function DetailedMetrics({ r, pattern }) {
 function buildSummary({ inputs, pattern, result: r }) {
   const p = CORE.PATTERN_PROFILES[pattern];
   return [
-    'Blazor Server Capacity — Plan Summary',
+    'Blazor Server Capacity Plan Summary',
     `Pattern: ${p.label} (${p.name})`,
     `Peak users: ${CORE.fmtInt(r.users)}`,
     '',
